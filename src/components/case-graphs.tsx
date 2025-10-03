@@ -1,0 +1,329 @@
+"use client";
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  BarChart3,
+  TrendingUp,
+  PieChart,
+  Activity,
+  FileText,
+  Clock,
+  Database,
+} from "lucide-react";
+
+interface CaseGraphsProps {
+  caseId: string;
+}
+
+export function CaseGraphs({ caseId }: CaseGraphsProps) {
+  return (
+    <div className="space-y-6">
+      <div>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-slate-100 mb-2">
+          Case Analytics
+        </h1>
+        <p className="text-slate-600 dark:text-slate-400">
+          Visual analysis and statistics for case data patterns.
+        </p>
+      </div>
+
+      {/* Main Graph Section */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* File Type Distribution */}
+        <Card className="bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 shadow-lg">
+          <CardHeader>
+            <CardTitle className="flex items-center space-x-2 text-gray-900 dark:text-slate-100">
+              <PieChart className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
+              <span>File Type Distribution</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex items-center justify-center h-64 bg-slate-50 dark:bg-slate-700/50 rounded-lg border-2 border-dashed border-slate-300 dark:border-slate-600">
+              <div className="text-center">
+                <PieChart className="h-12 w-12 text-slate-400 dark:text-slate-500 mx-auto mb-3" />
+                <p className="text-slate-600 dark:text-slate-400 font-medium">
+                  Pie Chart Placeholder
+                </p>
+                <p className="text-sm text-slate-500 dark:text-slate-500 mt-1">
+                  Distribution of file types found in evidence
+                </p>
+              </div>
+            </div>
+            <div className="mt-4 space-y-3">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                  <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                  <span className="text-sm text-slate-600 dark:text-slate-400">
+                    Images
+                  </span>
+                </div>
+                <span className="text-sm font-medium text-gray-900 dark:text-slate-100">
+                  42%
+                </span>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                  <div className="w-3 h-3 bg-emerald-500 rounded-full"></div>
+                  <span className="text-sm text-slate-600 dark:text-slate-400">
+                    Documents
+                  </span>
+                </div>
+                <span className="text-sm font-medium text-gray-900 dark:text-slate-100">
+                  28%
+                </span>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                  <div className="w-3 h-3 bg-amber-500 rounded-full"></div>
+                  <span className="text-sm text-slate-600 dark:text-slate-400">
+                    Videos
+                  </span>
+                </div>
+                <span className="text-sm font-medium text-gray-900 dark:text-slate-100">
+                  20%
+                </span>
+              </div>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <span className="text-sm text-slate-600 dark:text-slate-400">
+                    Others
+                  </span>
+                </div>
+                <span className="text-sm font-medium text-gray-900 dark:text-slate-100">
+                  10%
+                </span>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Activity Timeline Graph */}
+        <Card className="bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 shadow-lg">
+          <CardHeader>
+            <CardTitle className="flex items-center space-x-2 text-gray-900 dark:text-slate-100">
+              <Activity className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
+              <span>Case Activity Over Time</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex items-center justify-center h-64 bg-slate-50 dark:bg-slate-700/50 rounded-lg border-2 border-dashed border-slate-300 dark:border-slate-600">
+              <div className="text-center">
+                <Activity className="h-12 w-12 text-slate-400 dark:text-slate-500 mx-auto mb-3" />
+                <p className="text-slate-600 dark:text-slate-400 font-medium">
+                  Line Chart Placeholder
+                </p>
+                <p className="text-sm text-slate-500 dark:text-slate-500 mt-1">
+                  Processing activity timeline visualization
+                </p>
+              </div>
+            </div>
+            <div className="mt-4 flex items-center justify-between text-sm">
+              <span className="text-slate-500 dark:text-slate-400">Jan 15</span>
+              <span className="text-slate-500 dark:text-slate-400">
+                Peak: 14:30
+              </span>
+              <span className="text-slate-500 dark:text-slate-400">Jan 15</span>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Additional Charts */}
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+        {/* Evidence Sources */}
+        <Card className="bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 shadow-lg">
+          <CardHeader>
+            <CardTitle className="flex items-center space-x-2 text-gray-900 dark:text-slate-100">
+              <Database className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
+              <span>Evidence Sources</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex items-center justify-center h-48 bg-slate-50 dark:bg-slate-700/50 rounded-lg border-2 border-dashed border-slate-300 dark:border-slate-600">
+              <div className="text-center">
+                <BarChart3 className="h-10 w-10 text-slate-400 dark:text-slate-500 mx-auto mb-2" />
+                <p className="text-slate-600 dark:text-slate-400 font-medium text-sm">
+                  Bar Chart
+                </p>
+                <p className="text-xs text-slate-500 dark:text-slate-500 mt-1">
+                  Source distribution
+                </p>
+              </div>
+            </div>
+            <div className="mt-3 space-y-2">
+              <div className="flex justify-between text-sm">
+                <span className="text-slate-600 dark:text-slate-400">
+                  Photos
+                </span>
+                <span className="font-medium text-gray-900 dark:text-slate-100">
+                  534
+                </span>
+              </div>
+              <div className="flex justify-between text-sm">
+                <span className="text-slate-600 dark:text-slate-400">
+                  Messages
+                </span>
+                <span className="font-medium text-gray-900 dark:text-slate-100">
+                  267
+                </span>
+              </div>
+              <div className="flex justify-between text-sm">
+                <span className="text-slate-600 dark:text-slate-400">
+                  Contacts
+                </span>
+                <span className="font-medium text-gray-900 dark:text-slate-100">
+                  89
+                </span>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Processing Metrics */}
+        <Card className="bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 shadow-lg">
+          <CardHeader>
+            <CardTitle className="flex items-center space-x-2 text-gray-900 dark:text-slate-100">
+              <TrendingUp className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
+              <span>Processing Metrics</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex items-center justify-center h-48 bg-slate-50 dark:bg-slate-700/50 rounded-lg border-2 border-dashed border-slate-300 dark:border-slate-600">
+              <div className="text-center">
+                <TrendingUp className="h-10 w-10 text-slate-400 dark:text-slate-500 mx-auto mb-2" />
+                <p className="text-slate-600 dark:text-slate-400 font-medium text-sm">
+                  Performance Graph
+                </p>
+                <p className="text-xs text-slate-500 dark:text-slate-500 mt-1">
+                  Processing efficiency
+                </p>
+              </div>
+            </div>
+            <div className="mt-3 space-y-2">
+              <div className="flex justify-between text-sm">
+                <span className="text-slate-600 dark:text-slate-400">
+                  Avg Speed
+                </span>
+                <span className="font-medium text-emerald-600 dark:text-emerald-400">
+                  98.5%
+                </span>
+              </div>
+              <div className="flex justify-between text-sm">
+                <span className="text-slate-600 dark:text-slate-400">
+                  Accuracy
+                </span>
+                <span className="font-medium text-blue-600 dark:text-blue-400">
+                  99.2%
+                </span>
+              </div>
+              <div className="flex justify-between text-sm">
+                <span className="text-slate-600 dark:text-slate-400">
+                  Completion
+                </span>
+                <span className="font-medium text-indigo-600 dark:text-indigo-400">
+                  100%
+                </span>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* File Size Analysis */}
+        <Card className="bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 shadow-lg">
+          <CardHeader>
+            <CardTitle className="flex items-center space-x-2 text-gray-900 dark:text-slate-100">
+              <FileText className="h-5 w-5 text-indigo-600 dark:text-indigo-400" />
+              <span>File Size Analysis</span>
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex items-center justify-center h-48 bg-slate-50 dark:bg-slate-700/50 rounded-lg border-2 border-dashed border-slate-300 dark:border-slate-600">
+              <div className="text-center">
+                <FileText className="h-10 w-10 text-slate-400 dark:text-slate-500 mx-auto mb-2" />
+                <p className="text-slate-600 dark:text-slate-400 font-medium text-sm">
+                  Size Distribution
+                </p>
+                <p className="text-xs text-slate-500 dark:text-slate-500 mt-1">
+                  File size breakdown
+                </p>
+              </div>
+            </div>
+            <div className="mt-3 space-y-2">
+              <div className="flex justify-between text-sm">
+                <span className="text-slate-600 dark:text-slate-400">
+                  &lt; 1MB
+                </span>
+                <span className="font-medium text-gray-900 dark:text-slate-100">
+                  1,089
+                </span>
+              </div>
+              <div className="flex justify-between text-sm">
+                <span className="text-slate-600 dark:text-slate-400">
+                  1-10MB
+                </span>
+                <span className="font-medium text-gray-900 dark:text-slate-100">
+                  234
+                </span>
+              </div>
+              <div className="flex justify-between text-sm">
+                <span className="text-slate-600 dark:text-slate-400">
+                  &gt; 10MB
+                </span>
+                <span className="font-medium text-gray-900 dark:text-slate-100">
+                  45
+                </span>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Summary Stats */}
+      <Card className="bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-900/20 dark:to-blue-900/20 border-indigo-200 dark:border-indigo-700">
+        <CardContent className="p-6">
+          <div className="flex items-center space-x-3 mb-4">
+            <BarChart3 className="h-6 w-6 text-indigo-600 dark:text-indigo-400" />
+            <h3 className="text-lg font-semibold text-indigo-900 dark:text-indigo-100">
+              Analysis Summary
+            </h3>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+            <div>
+              <p className="text-2xl font-bold text-indigo-700 dark:text-indigo-300">
+                1,247
+              </p>
+              <p className="text-sm text-indigo-600 dark:text-indigo-400">
+                Total Files
+              </p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-indigo-700 dark:text-indigo-300">
+                2.3GB
+              </p>
+              <p className="text-sm text-indigo-600 dark:text-indigo-400">
+                Data Processed
+              </p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-indigo-700 dark:text-indigo-300">
+                89
+              </p>
+              <p className="text-sm text-indigo-600 dark:text-indigo-400">
+                Evidence Items
+              </p>
+            </div>
+            <div>
+              <p className="text-2xl font-bold text-indigo-700 dark:text-indigo-300">
+                99.2%
+              </p>
+              <p className="text-sm text-indigo-600 dark:text-indigo-400">
+                Accuracy Rate
+              </p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}

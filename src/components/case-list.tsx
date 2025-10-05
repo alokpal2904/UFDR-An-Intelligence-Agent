@@ -15,6 +15,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Search, Eye, Download, Calendar, File } from "lucide-react";
+import CaseDecrypt from "./case-decrypt";
 import { ClientWrapper } from "@/components/client-wrapper";
 
 interface Case {
@@ -76,6 +77,7 @@ const defaultCases: Case[] = [
 
 export function CaseList({ cases = defaultCases }: CaseListProps) {
   const [searchTerm, setSearchTerm] = useState("");
+  const [showDecryptFor, setShowDecryptFor] = useState<string | null>(null);
 
   const filteredCases = cases.filter(
     (caseItem) =>
@@ -208,6 +210,14 @@ export function CaseList({ cases = defaultCases }: CaseListProps) {
                               <Download className="h-3 w-3 mr-1" />
                               Export
                             </Button>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              className="h-8 px-3 text-xs text-slate-400 hover:text-slate-200"
+                              onClick={() => setShowDecryptFor(caseItem.id)}
+                            >
+                              Decrypt
+                            </Button>
                           </div>
                         </TableCell>
                       </TableRow>
@@ -277,12 +287,31 @@ export function CaseList({ cases = defaultCases }: CaseListProps) {
                             <Download className="h-3 w-3 mr-1" />
                             Export
                           </Button>
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            className="flex-1 h-8 text-xs text-slate-400 hover:text-slate-200"
+                            onClick={() => setShowDecryptFor(caseItem.id)}
+                          >
+                            Decrypt
+                          </Button>
                         </div>
                       </div>
                     </CardContent>
                   </Card>
                 ))}
               </div>
+              {showDecryptFor && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+                  <div className="w-full max-w-2xl bg-white dark:bg-slate-800 rounded shadow-lg p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <h3 className="text-lg font-semibold">Analyst: Decrypt file for case {showDecryptFor}</h3>
+                      <button className="text-slate-500" onClick={() => setShowDecryptFor(null)}>Close</button>
+                    </div>
+                    <CaseDecrypt />
+                  </div>
+                </div>
+              )}
             </>
           )}
         </CardContent>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import CaseDecrypt from '../components/case-decrypt';
 
 export default function Home() {
   return (

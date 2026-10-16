@@ -76,32 +76,32 @@ export function Sidebar({
   };
 
   return (
-    <div className="w-80 h-full bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 flex flex-col">
+    <div className="w-80 h-full bg-slate-900/90 backdrop-blur-md border-r border-cyan-500/20 flex flex-col matrix-glass matrix-scan-line">
       {/* Header */}
-      <div className="p-6 border-b border-slate-200 dark:border-slate-700">
+      <div className="p-6 border-b border-cyan-500/20">
         <Link
           href="/dashboard"
-          className="flex items-center space-x-2 text-slate-600 hover:text-indigo-600 dark:text-slate-400 dark:hover:text-indigo-400 transition-colors mb-4"
+          className="flex items-center space-x-2 text-cyan-200 hover:text-cyan-300 transition-all duration-300 mb-4 font-['Space_Mono'] hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.6)] matrix-glow-hover"
         >
           <ArrowLeft className="h-4 w-4" />
           <span className="text-sm">Back to Dashboard</span>
         </Link>
         <div>
-          <h1 className="text-lg font-semibold text-gray-900 dark:text-slate-100 mb-1">
+          <h1 className="text-lg font-semibold text-cyan-200/70 mb-1 font-['Orbitron'] tracking-wide">
             {caseData.name}
           </h1>
           <div className="flex items-center space-x-2">
             <div
               className={cn(
-                "px-2 py-1 rounded-full text-xs font-medium",
+                "px-2 py-1 rounded-full text-xs font-medium font-['Space_Mono']",
                 caseData.status === "completed"
-                  ? "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400"
-                  : "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400"
+                  ? "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30"
+                  : "bg-blue-500/20 text-blue-300 border border-blue-500/30"
               )}
             >
               {caseData.status === "completed" ? "Completed" : "Ongoing"}
             </div>
-            <span className="text-xs text-slate-500 dark:text-slate-400">
+            <span className="text-xs text-slate-400 font-['Space_Mono']">
               ID: {caseData.id}
             </span>
           </div>
@@ -120,23 +120,23 @@ export function Sidebar({
                 key={item.id}
                 onClick={() => handleItemClick(item.id)}
                 className={cn(
-                  "w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all duration-200",
+                  "w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all duration-300 font-['Space_Mono'] matrix-glow-hover",
                   isActive
-                    ? "bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-900/30 dark:to-blue-900/30 text-indigo-700 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-700/50 shadow-sm"
-                    : "text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-slate-900 dark:hover:text-slate-200"
+                    ? "bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-200 border border-cyan-500/40 shadow-lg matrix-glow"
+                    : "text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-200 hover:border-cyan-500/20 border border-transparent"
                 )}
               >
                 <Icon
                   className={cn(
-                    "h-5 w-5",
+                    "h-5 w-5 transition-colors duration-300",
                     isActive
-                      ? "text-indigo-600 dark:text-indigo-400"
-                      : "text-slate-500 dark:text-slate-500"
+                      ? "text-cyan-300"
+                      : "text-slate-400 group-hover:text-cyan-400"
                   )}
                 />
                 <span className="font-medium">{item.label}</span>
                 {isActive && (
-                  <div className="ml-auto w-2 h-2 bg-indigo-600 dark:bg-indigo-400 rounded-full"></div>
+                  <div className="ml-auto w-2 h-2 bg-cyan-400 rounded-full shadow-[0_0_8px_rgba(0,255,255,0.6)] animate-pulse"></div>
                 )}
               </button>
             );
@@ -145,8 +145,8 @@ export function Sidebar({
       </nav>
 
       {/* Footer */}
-      <div className="p-4 border-t border-slate-200 dark:border-slate-700">
-        <div className="text-xs text-slate-500 dark:text-slate-400 text-center">
+      <div className="p-4 border-t border-cyan-500/20">
+        <div className="text-xs text-slate-400 text-center font-['Space_Mono']">
           ForensiAI v2.0
         </div>
       </div>

@@ -88,16 +88,16 @@ export default function SignupPage() {
       title="Create account"
       description="Join ForensiAI to get started"
     >
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 font-['Space_Mono']">
         <div className="space-y-2">
           <Label
             htmlFor="name"
-            className="text-sm font-medium text-gray-900 dark:text-slate-200"
+            className="text-sm font-medium text-cyan-300 font-['Orbitron']"
           >
             Full Name
           </Label>
           <div className="relative">
-            <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 dark:text-slate-500 h-4 w-4" />
+            <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cyan-400 h-4 w-4" />
             <Input
               id="name"
               name="name"
@@ -105,16 +105,16 @@ export default function SignupPage() {
               placeholder="Enter your full name"
               value={formData.name}
               onChange={handleInputChange}
-              className={`pl-10 transition-colors dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:placeholder-slate-400 ${
+              className={`pl-10 transition-all duration-300 ${
                 errors.name
-                  ? "border-red-600 focus:border-red-600 dark:border-red-500 dark:focus:border-red-500"
+                  ? "border-red-500/50 focus:border-red-400 shadow-[0_0_10px_rgba(255,68,68,0.2)]"
                   : ""
               }`}
               disabled={isLoading}
             />
           </div>
           {errors.name && (
-            <p className="text-sm text-red-600 dark:text-red-400">
+            <p className="text-sm text-red-300 font-['Space_Mono']">
               {errors.name}
             </p>
           )}
@@ -123,12 +123,12 @@ export default function SignupPage() {
         <div className="space-y-2">
           <Label
             htmlFor="email"
-            className="text-sm font-medium text-gray-900 dark:text-slate-200"
+            className="text-sm font-medium text-cyan-300 font-['Orbitron']"
           >
             Email
           </Label>
           <div className="relative">
-            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 dark:text-slate-500 h-4 w-4" />
+            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cyan-400 h-4 w-4" />
             <Input
               id="email"
               name="email"
@@ -136,16 +136,16 @@ export default function SignupPage() {
               placeholder="Enter your email"
               value={formData.email}
               onChange={handleInputChange}
-              className={`pl-10 transition-colors dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:placeholder-slate-400 ${
+              className={`pl-10 transition-all duration-300 ${
                 errors.email
-                  ? "border-red-600 focus:border-red-600 dark:border-red-500 dark:focus:border-red-500"
+                  ? "border-red-500/50 focus:border-red-400 shadow-[0_0_10px_rgba(255,68,68,0.2)]"
                   : ""
               }`}
               disabled={isLoading}
             />
           </div>
           {errors.email && (
-            <p className="text-sm text-red-600 dark:text-red-400">
+            <p className="text-sm text-red-300 font-['Space_Mono']">
               {errors.email}
             </p>
           )}
@@ -154,12 +154,12 @@ export default function SignupPage() {
         <div className="space-y-2">
           <Label
             htmlFor="password"
-            className="text-sm font-medium text-gray-900 dark:text-slate-200"
+            className="text-sm font-medium text-cyan-300 font-['Orbitron']"
           >
             Password
           </Label>
           <div className="relative">
-            <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 dark:text-slate-500 h-4 w-4" />
+            <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cyan-400 h-4 w-4" />
             <Input
               id="password"
               name="password"
@@ -167,16 +167,16 @@ export default function SignupPage() {
               placeholder="Create a password"
               value={formData.password}
               onChange={handleInputChange}
-              className={`pl-10 transition-colors dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:placeholder-slate-400 ${
+              className={`pl-10 transition-all duration-300 ${
                 errors.password
-                  ? "border-red-600 focus:border-red-600 dark:border-red-500 dark:focus:border-red-500"
+                  ? "border-red-500/50 focus:border-red-400 shadow-[0_0_10px_rgba(255,68,68,0.2)]"
                   : ""
               }`}
               disabled={isLoading}
             />
           </div>
           {errors.password && (
-            <p className="text-sm text-red-600 dark:text-red-400">
+            <p className="text-sm text-red-300 font-['Space_Mono']">
               {errors.password}
             </p>
           )}
@@ -185,12 +185,12 @@ export default function SignupPage() {
         <div className="space-y-2">
           <Label
             htmlFor="confirmPassword"
-            className="text-sm font-medium text-gray-900 dark:text-slate-200"
+            className="text-sm font-medium text-cyan-300 font-['Orbitron']"
           >
             Confirm Password
           </Label>
           <div className="relative">
-            <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 dark:text-slate-500 h-4 w-4" />
+            <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cyan-400 h-4 w-4" />
             <Input
               id="confirmPassword"
               name="confirmPassword"
@@ -198,33 +198,33 @@ export default function SignupPage() {
               placeholder="Confirm your password"
               value={formData.confirmPassword}
               onChange={handleInputChange}
-              className={`pl-10 transition-colors dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:placeholder-slate-400 ${
+              className={`pl-10 transition-all duration-300 ${
                 errors.confirmPassword
-                  ? "border-red-600 focus:border-red-600 dark:border-red-500 dark:focus:border-red-500"
+                  ? "border-red-500/50 focus:border-red-400 shadow-[0_0_10px_rgba(255,68,68,0.2)]"
                   : ""
               }`}
               disabled={isLoading}
             />
           </div>
           {errors.confirmPassword && (
-            <p className="text-sm text-red-600 dark:text-red-400">
+            <p className="text-sm text-red-300 font-['Space_Mono']">
               {errors.confirmPassword}
             </p>
           )}
         </div>
 
-        <div className="text-xs text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800 p-3 rounded-md">
+        <div className="text-xs text-slate-300 bg-slate-800/60 backdrop-blur-md p-3 rounded-md border border-cyan-500/10 font-['Space_Mono']">
           By creating an account, you agree to our{" "}
           <Link
             href="/terms"
-            className="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 hover:underline"
+            className="text-cyan-300 hover:text-cyan-200 hover:underline transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.6)]"
           >
             Terms of Service
           </Link>{" "}
           and{" "}
           <Link
             href="/privacy"
-            className="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 hover:underline"
+            className="text-cyan-300 hover:text-cyan-200 hover:underline transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.6)]"
           >
             Privacy Policy
           </Link>
@@ -232,12 +232,12 @@ export default function SignupPage() {
 
         <Button
           type="submit"
-          className="w-full bg-gradient-to-r from-indigo-800 to-blue-500 hover:from-indigo-900 hover:to-blue-600 transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-50 text-white"
+          className="w-full bg-gradient-to-r from-emerald-500/20 to-green-500/20 hover:from-emerald-500/30 hover:to-green-500/30 transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,255,136,0.4)] disabled:opacity-50 text-emerald-300 hover:text-emerald-200 border border-emerald-500/30 hover:border-emerald-400 font-['Orbitron'] matrix-glow-hover"
           disabled={isLoading}
         >
           {isLoading ? (
             <div className="flex items-center space-x-2">
-              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              <div className="w-4 h-4 border-2 border-emerald-300 border-t-transparent rounded-full animate-spin" />
               <span>Creating account...</span>
             </div>
           ) : (
@@ -249,11 +249,11 @@ export default function SignupPage() {
         </Button>
 
         <div className="text-center">
-          <p className="text-sm text-slate-600 dark:text-slate-400">
+          <p className="text-sm text-slate-300 font-['Space_Mono']">
             Already have an account?{" "}
             <Link
               href="/login"
-              className="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 hover:underline font-medium transition-colors"
+              className="text-cyan-300 hover:text-cyan-200 hover:underline font-medium transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.6)]"
             >
               Sign in
             </Link>

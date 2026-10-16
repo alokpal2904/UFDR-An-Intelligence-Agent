@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { CaseProvider } from "@/components/case-context";
 import { ClientOnly } from "@/components/client-only";
+import { ParticleBackground } from "@/components/particle-background";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,9 +41,10 @@ export default function RootLayout({
         >
           <ClientOnly>
             <CaseProvider>
-              <div className="min-h-screen flex flex-col bg-white dark:bg-slate-900 text-gray-900 dark:text-slate-100">
+              <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-900 via-blue-900/20 to-slate-900 text-cyan-100 relative overflow-hidden">
+                <ParticleBackground />
                 <Navbar />
-                <main className="flex-1">{children}</main>
+                <main className="flex-1 relative z-10">{children}</main>
               </div>
             </CaseProvider>
           </ClientOnly>

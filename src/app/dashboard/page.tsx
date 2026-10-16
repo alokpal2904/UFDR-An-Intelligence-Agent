@@ -63,14 +63,14 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900/10 to-slate-900 relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-800 to-blue-500 bg-clip-text text-transparent mb-2">
+        <div className="mb-8 matrix-glass p-6 rounded-xl border border-cyan-500/20 backdrop-blur-lg matrix-float">
+          <h1 className="text-3xl font-bold text-cyan-200/70 mb-2 font-['Orbitron'] tracking-wide">
             Dashboard
           </h1>
-          <p className="text-slate-600 dark:text-slate-400">
+          <p className="text-slate-200 font-['Space_Mono']">
             Welcome back! Here's an overview of your forensic analysis cases.
           </p>
         </div>
@@ -101,15 +101,15 @@ export default function DashboardPage() {
         </div>
 
         {/* Upload Section */}
-        <div className="mb-8">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-slate-100 mb-4">
+        <div className="mb-8 matrix-glass p-6 rounded-xl border border-cyan-500/20 backdrop-blur-lg matrix-float">
+          <h2 className="text-xl font-semibold text-cyan-200/70 mb-4 font-['Orbitron'] tracking-wide">
             New Analysis
           </h2>
           <UploadBox onFileUpload={handleFileUpload} onCaseCreated={handleCaseCreated} />
         </div>
 
         {/* Past Cases Section */}
-        <div>
+        <div className="matrix-glass p-6 rounded-xl border border-cyan-500/20 backdrop-blur-lg matrix-float">
           <CaseList />
         </div>
       </div>

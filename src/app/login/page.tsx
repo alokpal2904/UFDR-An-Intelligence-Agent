@@ -72,16 +72,16 @@ export default function LoginPage() {
       title="Welcome back"
       description="Sign in to your ForensiAI account"
     >
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleSubmit} className="space-y-4 font-['Space_Mono']">
         <div className="space-y-2">
           <Label
             htmlFor="email"
-            className="text-sm font-medium text-gray-900 dark:text-slate-200"
+            className="text-sm font-medium text-cyan-300 font-['Orbitron']"
           >
             Email
           </Label>
           <div className="relative">
-            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 dark:text-slate-500 h-4 w-4" />
+            <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cyan-400 h-4 w-4" />
             <Input
               id="email"
               name="email"
@@ -89,16 +89,16 @@ export default function LoginPage() {
               placeholder="Enter your email"
               value={formData.email}
               onChange={handleInputChange}
-              className={`pl-10 transition-colors dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:placeholder-slate-400 ${
+              className={`pl-10 transition-all duration-300 ${
                 errors.email
-                  ? "border-red-600 focus:border-red-600 dark:border-red-500 dark:focus:border-red-500"
+                  ? "border-red-500/50 focus:border-red-400 shadow-[0_0_10px_rgba(255,68,68,0.2)]"
                   : ""
               }`}
               disabled={isLoading}
             />
           </div>
           {errors.email && (
-            <p className="text-sm text-red-600 dark:text-red-400">
+            <p className="text-sm text-red-300 font-['Space_Mono']">
               {errors.email}
             </p>
           )}
@@ -107,12 +107,12 @@ export default function LoginPage() {
         <div className="space-y-2">
           <Label
             htmlFor="password"
-            className="text-sm font-medium text-gray-900 dark:text-slate-200"
+            className="text-sm font-medium text-cyan-300 font-['Orbitron']"
           >
             Password
           </Label>
           <div className="relative">
-            <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 dark:text-slate-500 h-4 w-4" />
+            <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-cyan-400 h-4 w-4" />
             <Input
               id="password"
               name="password"
@@ -120,16 +120,16 @@ export default function LoginPage() {
               placeholder="Enter your password"
               value={formData.password}
               onChange={handleInputChange}
-              className={`pl-10 transition-colors dark:bg-slate-800 dark:border-slate-600 dark:text-slate-200 dark:placeholder-slate-400 ${
+              className={`pl-10 transition-all duration-300 ${
                 errors.password
-                  ? "border-red-600 focus:border-red-600 dark:border-red-500 dark:focus:border-red-500"
+                  ? "border-red-500/50 focus:border-red-400 shadow-[0_0_10px_rgba(255,68,68,0.2)]"
                   : ""
               }`}
               disabled={isLoading}
             />
           </div>
           {errors.password && (
-            <p className="text-sm text-red-600 dark:text-red-400">
+            <p className="text-sm text-red-300 font-['Space_Mono']">
               {errors.password}
             </p>
           )}
@@ -138,7 +138,7 @@ export default function LoginPage() {
         <div className="flex items-center justify-between">
           <Link
             href="/forgot-password"
-            className="text-sm text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 hover:underline transition-colors"
+            className="text-sm text-cyan-300 hover:text-cyan-200 hover:underline transition-all duration-300 font-['Space_Mono'] hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.6)]"
           >
             Forgot password?
           </Link>
@@ -146,12 +146,12 @@ export default function LoginPage() {
 
         <Button
           type="submit"
-          className="w-full bg-gradient-to-r from-indigo-800 to-blue-500 hover:from-indigo-900 hover:to-blue-600 transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-50 text-white"
+          className="w-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 hover:from-cyan-500/30 hover:to-blue-500/30 transition-all duration-300 shadow-lg hover:shadow-[0_0_25px_rgba(0,255,255,0.4)] disabled:opacity-50 text-cyan-300 hover:text-cyan-200 border border-cyan-500/30 hover:border-cyan-400 font-['Orbitron'] matrix-glow-hover"
           disabled={isLoading}
         >
           {isLoading ? (
             <div className="flex items-center space-x-2">
-              <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+              <div className="w-4 h-4 border-2 border-cyan-300 border-t-transparent rounded-full animate-spin" />
               <span>Signing in...</span>
             </div>
           ) : (
@@ -163,11 +163,11 @@ export default function LoginPage() {
         </Button>
 
         <div className="text-center">
-          <p className="text-sm text-slate-600 dark:text-slate-400">
+          <p className="text-sm text-slate-300 font-['Space_Mono']">
             Don't have an account?{" "}
             <Link
               href="/signup"
-              className="text-indigo-600 hover:text-indigo-800 dark:text-indigo-400 dark:hover:text-indigo-300 hover:underline font-medium transition-colors"
+              className="text-cyan-300 hover:text-cyan-200 hover:underline font-medium transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(0,255,255,0.6)]"
             >
               Sign up
             </Link>

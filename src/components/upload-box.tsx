@@ -103,19 +103,19 @@ export function UploadBox({ onFileUpload, onCaseCreated }: UploadBoxProps) {
   };
 
   return (
-    <Card className="bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 shadow-lg">
+    <Card className="bg-slate-900/80 backdrop-blur-md border border-cyan-500/30 shadow-2xl matrix-glass hover:border-cyan-400/50 transition-all duration-500">
       <CardContent className="p-6">
         <div className="text-center space-y-4">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-slate-100">
+          <h3 className="text-lg font-semibold text-cyan-200/70 font-['Orbitron'] tracking-wide">
             Upload UFDR File
           </h3>
 
           {!uploadedFile ? (
             <div
-              className={`border-2 border-dashed rounded-lg p-8 transition-colors ${
+              className={`border-2 border-dashed rounded-lg p-8 transition-all duration-300 font-['Space_Mono'] ${
                 dragActive
-                  ? "border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20"
-                  : "border-slate-300 dark:border-slate-600 hover:border-indigo-400 dark:hover:border-indigo-500"
+                  ? "border-cyan-400 bg-cyan-500/10 shadow-[0_0_30px_rgba(0,255,255,0.2)] matrix-glow"
+                  : "border-cyan-500/30 hover:border-cyan-400/50 hover:bg-cyan-500/5 hover:shadow-[0_0_20px_rgba(0,255,255,0.1)]"
               }`}
               onDragEnter={handleDrag}
               onDragLeave={handleDrag}
@@ -123,22 +123,22 @@ export function UploadBox({ onFileUpload, onCaseCreated }: UploadBoxProps) {
               onDrop={handleDrop}
             >
               <div className="flex flex-col items-center space-y-4">
-                <div className="p-3 bg-gradient-to-r from-indigo-100 to-blue-100 dark:from-indigo-900/30 dark:to-blue-900/30 rounded-full">
-                  <Upload className="h-8 w-8 text-indigo-600 dark:text-indigo-400" />
+                <div className="p-3 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 rounded-full border border-cyan-500/30 shadow-lg">
+                  <Upload className="h-8 w-8 text-cyan-300" />
                 </div>
 
                 <div className="space-y-2">
-                  <p className="text-sm font-medium text-gray-900 dark:text-slate-100">
+                  <p className="text-sm font-medium text-cyan-200 font-['Space_Mono']">
                     Drag and drop your UFDR file here
                   </p>
-                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                  <p className="text-xs text-slate-300 font-['Space_Mono']">
                     or click to browse
                   </p>
                 </div>
 
                 <Button
                   variant="outline"
-                  className="border-indigo-200 text-indigo-600 hover:bg-indigo-50 dark:border-indigo-700 dark:text-indigo-400 dark:hover:bg-indigo-900/20"
+                  className="border-cyan-500/30 text-cyan-300 hover:bg-cyan-500/10 hover:border-cyan-400 hover:text-cyan-200 transition-all duration-300 font-['Orbitron'] matrix-glow-hover"
                   onClick={() =>
                     document.getElementById("file-upload")?.click()
                   }

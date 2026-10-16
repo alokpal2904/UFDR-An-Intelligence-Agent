@@ -1,3 +1,5 @@
+from typing import Optional
+
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -5,6 +7,7 @@ import tempfile
 import os
 from ufdr_parser import parse_ufdr, chunk_text
 from vector_store import add_documents, get_full_context, delete_session
+from evaluator import run_evaluation
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
@@ -295,6 +298,39 @@ Your Response (MUST be in {detected_language or 'the specified language'}):"""
             return JSONResponse(content={"query": query, "response": mock_response, "context_used": len(context) > 0 if 'context' in locals() else False, "session_id": session_id})
         
         raise HTTPException(status_code=500, detail=f"Error querying documents: {str(e)}")
+
+
+@app.post("/evaluate/")
+async def evaluate_system(
+    session_id: Optional[str] = Form(None),
+    mode: str = Form("both"),
+    include_generation: str = Form("true"),
+    k: int = Form(5),
+):
+    """
+    Run retrieval and answer-quality evaluation.
+
+    mode=benchmark uses a realistic planted UFDR corpus and investigator questions.
+    mode=live scores the uploaded case session (self-retrieval + grounded answers).
+    mode=both runs each and reports an overall real-world readiness score.
+    """
+    generation = str(include_generation).strip().lower() in {"1", "true", "yes", "on"}
+    k = max(1, min(int(k or 5), 10))
+    session_id = (session_id or "").strip() or None
+    try:
+        result = run_evaluation(
+            mode=mode,
+            session_id=session_id,
+            include_generation=generation,
+            k=k,
+        )
+        return JSONResponse(content=result)
+    except Exception as e:
+        print(f"Evaluate error details: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"Error running evaluation: {str(e)}")
+
 
 if __name__ == "__main__":
     import uvicorn
